@@ -1,0 +1,51 @@
+<main class="form-signin mt-3">
+    <div class="row">
+        <div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
+            <div class="card">
+                <div class="card-body">
+                    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                        <h1 class="h3 mb-3 fw-normal">Login</h1>
+
+                        <fieldset>
+                            <label for="inputEmail" class="visually-hidden">Email address</label>
+                            <div class="input-group mb-2 mr-sm-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+                                </div>
+                                <input formControlName="email" type="email" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Email" [ngClass]="{'is-invalid' : (f.email.touched || submitted) && (f.email.errors?.required || f.email.errors?.email)}">
+                                <div *ngIf="(submitted && f.email.errors) || f.email.touched" class="invalid-feedback">
+                                    <span *ngIf="f.email.errors?.required">Email is required</span>
+                                    <span *ngIf="f.email.errors?.email">Invalid Email</span>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <label for="inputPassword" class="visually-hidden">Password</label>
+                            <div class="input-group mb-2 mr-sm-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="fa fa-unlock-alt" aria-hidden="true"></i></div>
+                                </div>
+                                <input formControlName="password" type="password" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Password" [ngClass]="{'is-invalid' : (f.password.touched || submitted) && (f.password.errors?.required || f.password.errors?.minlength)}">
+                                <div *ngIf="(submitted && f.password.errors) || f.password.touched" class="invalid-feedback">
+                                    <span *ngIf="f.password.errors?.required">Password is required</span>
+                                    <span *ngIf="f.password.errors?.minlength">Password must be at least 6 characters</span>
+                                </div>
+                            </div>
+                            <div class="checkbox mb-3">
+                                <label>
+                          <input type="checkbox" value="remember-me"> Remember me
+                        </label>
+                            </div>
+                        </fieldset>
+                        <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
+                        <div class="or">
+                            <hr>
+                            <strong>OR</strong>
+                        </div>
+                    </form>
+                    <button class="w-100 btn btn-outline-primary btn-lg" (click)="signInWithGoogle()"> <i class="fa fa-google" aria-hidden="true"></i> Login with Google</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

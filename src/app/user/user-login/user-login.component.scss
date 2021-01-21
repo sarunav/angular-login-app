@@ -1,0 +1,12 @@
+.or {
+    position: relative;
+    margin: 32px 0;
+    strong {
+        position: absolute;
+        top: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #fff;
+        padding: 0 12px;
+    }
+}

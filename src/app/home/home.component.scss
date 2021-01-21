@@ -1,0 +1,82 @@
+.home-page-wrapper {
+    padding-bottom: 20px;
+}
+
+.title-card-wrapper {
+    .card {
+        background: #2700ff;
+        color: #fff;
+        text-align: center;
+    }
+}
+
+.dashboard-tool-bar-wrapper {
+    ul {
+        list-style-type: none;
+        padding-left: 0;
+        justify-content: center;
+        @media only screen and (min-width: 768px) {
+            display: flex;
+        }
+        li {
+            margin-bottom: 10px;
+            text-align: center;
+            @media only screen and (min-width: 768px) {
+                margin-right: 10px;
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+.flight-data-card-wrapper {
+    justify-content: space-between;
+    flex-wrap: wrap;
+    @media only screen and (min-width: 768px) {
+        display: flex;
+    }
+    .flight-data-card {
+        flex-basis: 49%;
+        @media only screen and (min-width: 1200px) {
+            flex-basis: 16%;
+        }
+        .card {
+            min-height: 160px;
+            .flight-details-count {
+                width: 150px;
+                text-align: center;
+                margin: 0 auto;
+                &:last-child {
+                    h2 {
+                        font-size: 32px;
+                    }
+                }
+                h2 {
+                    color: #007bff;
+                    margin-bottom: 0;
+                }
+                p {
+                    display: flex;
+                    justify-content: space-between;
+                }
+                hr {
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
+
+.graph-wrapper {
+    @media only screen and (min-width: 769px) {
+        display: flex;
+        justify-content: space-between;
+    }
+    .card {
+        margin-bottom: 1rem;
+        @media only screen and (min-width: 769px) {
+            flex-basis: 49.6%;
+            margin-bottom: 0;
+        }
+    }
+}

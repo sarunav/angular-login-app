@@ -1,0 +1,32 @@
+<div (click)="toggleChat()" [ngClass]="{'hide-chat' : hideChat}" class="chat-button">
+    <i class="fa fa-commenting-o" aria-hidden="true"></i>
+</div>
+
+<div class="card chat-interface-wrapper" [ngClass]="{'show-chat' : hideChat}">
+    <div class="card-body">
+        <div class="chat-header-section">
+            <div class="avatar">
+                <img src="../../../assets/images//5.jpg" alt="avatar">
+                <p>Ask CIRA</p>
+            </div>
+            <div class="close-btn">
+                <i (click)="closeChatInterface()" class="fa fa-times" aria-hidden="true"></i>
+            </div>
+        </div>
+        <hr>
+
+        <div class="chat-body-section">
+            <ul id="message-list"></ul>
+        </div>
+        <div class="chat-footer">
+            <form name="chat">
+                <div class="form-group">
+                    <input type="text" placeholder="Ask Something..." [(ngModel)]="chatText" name="chat" id="chat">
+                    <button (click)="submit()" type="submit">
+                        <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
