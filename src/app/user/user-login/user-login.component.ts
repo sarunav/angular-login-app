@@ -13,6 +13,7 @@ export class UserLoginComponent implements OnInit {
   loginForm: FormGroup;
   user: any;
   submitted = false;
+  isLoading = false;
 
   constructor(private authService: AuthService, private router: Router) {
     this.loginForm = new FormGroup({
@@ -35,26 +36,31 @@ export class UserLoginComponent implements OnInit {
     if (this.loginForm.invalid) {
       return;
     }
-
+    this.isLoading = true;
     this.authService.signInUsingEmailPassword(this.loginForm.value)
     .subscribe((res: SocialUser) => {
       this.user = res;
       this.authService.authenticateUser(res);
       this.router.navigate(['/']);
+      this.isLoading = false;
     }, err => {
       console.log('err---', err);
+      this.isLoading = false;
     });
   }
 
   // Sign in using google
   signInWithGoogle(): any {
+    this.isLoading = true;
     this.authService.signInWithGoogle()
     .then((res: SocialUser) => {
+      this.isLoading = false;
       this.user = res;
       this.authService.authenticateUser(res);
       this.router.navigate(['/']);
     })
     .catch((error) => {
+      this.isLoading = false;
       console.log('-err-', error);
     });
   }
